@@ -1,6 +1,11 @@
 <div class="monitor-vis" ng-controller="KbnMonitorVisController">
-  <div class="monitor-container" ng-repeat="server in servers">
-    <p>服务器名：<b ng-bind="server.server_name"></b></p>
-    <p>健康度：<span class="available" ng-class="{'red': !server.available, 'green': server.available}"></span></p>
+  <div class="monitor-container" ng-repeat="(key, value) in servers track by $index">
+    <div class="monitor-unit clearfix">
+      <h4 ng-bind="key"></h4>
+      <div class="monitor" ng-repeat="server in value track by $index">
+          <p><span ng-bind="server.server_name"></span></p>
+          <p><span class="available" ng-class="{'red': !server.available, 'green': server.available}"></span></p>
+      </div>
+    </div>
   </div>
 </div>

@@ -4,6 +4,8 @@ define(function (require) {
   require('plugins/visualize/editor/editor');
   require('plugins/visualize/wizard/wizard');
 
+  require('components/courier/courier');
+
   require('routes')
   .when('/visualize', {
     redirectTo: '/visualize/step/1'

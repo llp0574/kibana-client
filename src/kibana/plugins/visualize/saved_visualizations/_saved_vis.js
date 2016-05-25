@@ -56,7 +56,7 @@ define(function (require) {
 
       return self._getLinkedSavedSearch()
       .then(function () {
-        self.searchSource.size(0);
+        self.searchSource.size(200);
 
         return self.vis ? self._updateVis() : self._createVis();
       })
