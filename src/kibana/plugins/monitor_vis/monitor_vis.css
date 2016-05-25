@@ -12,7 +12,7 @@
   flex: 0 1 auto;
   position: relative;
   display: inline-block;
-  width: 25%;
+  min-width: 25%;
 }
 .monitor-vis .monitor-container {
   margin: 0 auto;
@@ -23,8 +23,13 @@
   background: rgba(245, 245, 245, 0.72);
 }
 .monitor-vis .monitor-container .monitor {
-  float: left;
-  width: 50%;
+  display: inline-block;
+  width: 25%;
+}
+.monitor-vis .monitor-container .monitor p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .monitor-vis .monitor-container .available {
   display: inline-block;

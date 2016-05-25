@@ -10,7 +10,7 @@ define(function (require) {
 
     var savedVis = $route.current.locals.savedVis;
     if (savedVis) {
-      savedVis.searchSource._state.size = 500;
+      // savedVis.searchSource._state.size = 500;
       savedVis.searchSource._state.query.query_string.query = 'cat:host';
     }
 

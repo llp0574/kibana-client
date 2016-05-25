@@ -56,8 +56,9 @@ define(function (require) {
 
       return self._getLinkedSavedSearch()
       .then(function () {
-        self.searchSource.size(200);
-
+        if (self.visState.type !== 'monitor') {
+          self.searchSource.size(0);
+        }
         return self.vis ? self._updateVis() : self._createVis();
       })
       .then(function (vis) {
