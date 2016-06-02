@@ -10,8 +10,7 @@ define(function (require) {
 
     var savedVis = $route.current.locals.savedVis;
     if (savedVis) {
-      // savedVis.searchSource._state.size = 500;
-      savedVis.searchSource._state.query.query_string.query = 'cat:host';
+      savedVis.searchSource._state.size = 500;
     }
 
     $scope.$watch('esResponse', function (resp) {
@@ -32,7 +31,7 @@ define(function (require) {
         hosts.forEach(function (host) {
           var timestamp = 0;
           var server = {};
-          for (var i = $scope.hits.length - 1; i >= 0; i--) {
+          for (var i = 0; i < $scope.hits.length; i++) {
             var time = new Date($scope.hits[i]._source['@timestamp']);
             if ($scope.hits[i]._source.host === host && timestamp < time.getTime()) {
               timestamp = time.getTime();
@@ -49,7 +48,7 @@ define(function (require) {
         });
         groups.forEach(function (group) {
           var tmpGroup = [];
-          for (var j = tmpServers.length - 1; j >= 0; j--) {
+          for (var j = 0; j < tmpServers.length; j++) {
             if (tmpServers[j].group === group) {
               tmpGroup.push(tmpServers[j]);
             }

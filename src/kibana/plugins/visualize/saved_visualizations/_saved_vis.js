@@ -58,6 +58,8 @@ define(function (require) {
       .then(function () {
         if (self.visState.type !== 'monitor') {
           self.searchSource.size(0);
+        } else {
+          self.searchSource.size(500);
         }
         return self.vis ? self._updateVis() : self._createVis();
       })

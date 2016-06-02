@@ -3,7 +3,7 @@
   padding: .5em;
 }
 .monitor-vis .monitor-container {
-  text-align: center;
+  text-align: left;
   padding: .5em;
   -webkit-box-flex: 0;
   -moz-box-flex: 0;
@@ -22,9 +22,13 @@
   padding-bottom: 9px;
   background: rgba(245, 245, 245, 0.72);
 }
+.monitor-vis .monitor-container .monitor-unit h4 {
+  text-align: center;
+}
 .monitor-vis .monitor-container .monitor {
   display: inline-block;
   width: 25%;
+  text-align: center;
 }
 .monitor-vis .monitor-container .monitor p {
   overflow: hidden;

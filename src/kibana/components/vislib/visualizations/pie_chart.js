@@ -197,6 +197,18 @@ define(function (require) {
           .append('g')
           .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
+          var numeral = require('numeral');
+          var angular = require('angular');
+
+          if (slices.children.length < 2 && !isNaN(numeral(slices.children[0].name)._value)) {
+            slices.children[0].percentOfGroup = slices.children[0].percentOfParent = parseFloat(slices.children[0].name) / 100;
+            var reverseItem = angular.copy(slices.children[0]);
+            reverseItem.percentOfGroup = reverseItem.percentOfParent = 1 - slices.children[0].percentOfGroup;
+            reverseItem.name = 'Trace value';
+            slices.children.push(reverseItem);
+            slices.children.sumOfChildren = 2;
+          }
+
           path = self.addPath(width, height, svg, slices);
           self.addPathEvents(path);
 
